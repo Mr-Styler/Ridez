@@ -1,0 +1,19 @@
+<%- include ('../partials/header') %>
+    <title>Add a product</title>
+</head>
+<body>
+    <%- include ('../partials/admin-nav') %>
+    <h1>Add a new product</h1>
+    <% if (errorMsg) { %>
+        <div><%= errorMsg %></div>
+    <% } %>
+    <form action="/admin/products/new" method="post" novalidate enctype="multipart/form-data">
+        <input type="text" class="form-control <%= validationErrors.find(e => e.param === 'title') ? 'btn btn-danger' : '' %>" name="title" id="title" placeholder="Title" value="<%= validationErrors.find(e => e.param === 'title') ? oldInput.title : '' %>">
+        <input type="file" name="image" id="image">
+        <input type="number" class="form-control <%= validationErrors.find(e => e.param === 'quantity') ? 'btn btn-danger' : '' %>" name="quantity" id="quantity" placeholder="Quantity" value="<%= validationErrors.find(e => e.param === 'quantity') ? oldInput.quantity : '' %>">
+        <input type="number" class="form-control <%= validationErrors.find(e => e.param === 'price') ? 'btn btn-danger' : '' %>" name="price" id="price" placeholder="Price" value="<%= validationErrors.find(e => e.param === 'price') ? oldInput.price : '' %>">
+    <textarea name="description" id="description" cols="30" rows="5"><%= validationErrors.find(e => e.param === 'description') ? oldInput.description : '' %></textarea>
+    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    <input type="submit" class="btn btn-danger">
+    </form>
+<%- include ('../partials/footer') %>

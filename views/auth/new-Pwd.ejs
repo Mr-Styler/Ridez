@@ -1,0 +1,19 @@
+<%- include ('../partials/header') %>
+    <title>Ridez</title>
+</head>
+<body>
+    <h1>Ridez-Password New Password  </h1>
+    <div>
+        <% if (errorMsg) { %>
+            <div><%= errorMsg %></div>
+        <% } %>
+        <form class="login-form" action="/new-Pwd" method="post">
+            <input class="form-control" type="password" name="newPwd" placeholder="New Password">
+            <input class="form-control" type="submit" value="Update Password">
+            <input type="hidden" name="username" value="<%= username %>">
+            <input type="hidden" name="userId" value="<%= userId %>">
+            <input type="hidden" name="pwdToken" value="<%= pwdToken %>">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        </form> 
+    </div>
+<%- include ('../partials/footer') %>

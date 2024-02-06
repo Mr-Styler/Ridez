@@ -1,0 +1,17 @@
+<%- include ('../partials/header') %>
+    <title>Ridez</title>
+</head>
+<body>
+    <%- include ('../partials/admin-nav') %>
+    <h1>Ridez-Orders page</h1>
+    <div id="products">
+        <% Orders.forEach( order => { %>
+            <div>
+                
+                <h3><%= order._id %></h3>
+
+                <a href="/order/<%= order._id %>">Invoice</a>
+            </div>
+        <% }) %>
+    </div>
+<%- include ('../partials/footer') %>

@@ -1,0 +1,10 @@
+.login-form {
+    width: 20rem;
+    max-width: 90%;
+    margin: 0;
+    display: block;
+}
+
+nav {
+    background-color: #d4af37;
+}

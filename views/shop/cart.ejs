@@ -1,0 +1,23 @@
+<%- include ('../partials/header') %>
+    <title>Ridez</title>
+</head>
+<body>
+    <%- include ('../partials/nav') %>
+    <h1>My Cart</h1>
+    <% var Products = Cart.items %>
+    <% Products.forEach(product => { 
+        console.log(product.productId.title) %>
+    <h4><%= product.productId.title %></h4>
+    <h6><%= product.quantity %></h6>
+    <form action="/cart/<%= product.productId._id %>/delete" method="post">
+        <input type="submit" value="Delete">
+        <input type="hidden" name="productId" value="<%= product.productId._id %>">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    </form>
+    <% }) %>
+    <h2>Amount: <%= Cart.amount %></h2>
+    <form action="/order" method="post">
+        <input class="btn" type="submit" value="Order Here!!!">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+    </form>
+<%- include ('../partials/footer') %>

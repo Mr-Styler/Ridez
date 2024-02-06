@@ -1,0 +1,18 @@
+<%- include ('../partials/header') %>
+    <title>Ridez</title>
+</head>
+<body>
+    <%- include ('../partials/admin-nav') %>
+    
+    <h1>Ridez-Admin-Carts page</h1>
+    <div id="products">
+        <% Carts.forEach( cart => { %>
+            <div>
+                <h3><%= cart.userId %></h3>
+                <h3><%= cart.items %></h3>
+                <h3><%= cart.amount %></h3>
+                <h3><%= cart.status %></h3>
+            </div>
+        <% }) %>
+    </div>
+<%- include ('../partials/footer') %>

@@ -1,0 +1,18 @@
+<%- include ('../partials/header') %>
+    <title>Ridez</title>
+</head>
+<body>
+    <h1>Ridez-Login page</h1>
+    <div>
+        <% if (errorMsg) { %>
+            <div><%= errorMsg %></div>
+        <% } %>
+        <form class="login-form" action="/login" method="post">
+            <input class="form-control <%= validationErrors.find(e => e.param === 'username') ? 'btn btn-danger' : '' %>" type="text" name="username" id="Uname" placeholder="Username" value="<%= oldInput.username %>">
+            <input class="form-control <%= validationErrors.find(e => e.param === 'password') ? 'btn btn-danger' : '' %>" type="password" name="password" id="Upass" placeholder="Password" value="<%= oldInput.password %>">
+            <input class="form-control" type="submit" value="Login">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        </form>
+        <a href="/signUp">Sign Up</a>
+    </div>
+<%- include ('../partials/footer') %>

@@ -1,0 +1,16 @@
+<%- include ('../partials/header') %>
+    <title>Ridez</title>
+</head>
+<body>
+    <h1>Ridez-Password Reset page</h1>
+    <div>
+        <% if (errorMsg) { %>
+            <div><%= errorMsg %></div>
+        <% } %>
+        <form class="login-form" action="/reset" method="post">
+            <input class="form-control" type="email" name="email" id="Uname" placeholder="Email">
+            <input class="form-control" type="submit" value="Reset Password">
+            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        </form> 
+    </div>
+<%- include ('../partials/footer') %>
